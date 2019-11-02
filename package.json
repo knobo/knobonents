@@ -1,6 +1,6 @@
 {
   "name": "knobonents",
-  "svelte": "src/index.svelte",
+  "svelte": "src/index.js",
   "module": "index.mjs",
   "main": "index.js",
   "scripts": {
