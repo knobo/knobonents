@@ -1,5 +1,5 @@
 {
-  "name": "SvelteComponent",
+  "name": "knobonents",
   "svelte": "src/index.svelte",
   "module": "index.mjs",
   "main": "index.js",
