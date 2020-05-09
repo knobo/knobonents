@@ -27,7 +27,8 @@
     "svelte"
   ],
   "files": [
-    "src",
+    "src/components",
+    "src/index.js",
     "index.mjs",
     "index.js"
   ],
