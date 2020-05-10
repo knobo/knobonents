@@ -1,4 +1,3 @@
-
 <script>
   import { 
     format,
@@ -14,8 +13,9 @@
     subMonths,
     addMonths,
     parseISO,
-    isValid
+    isValid,
   } from 'date-fns';
+
   import { fade, fly, slide } from 'svelte/transition';
   import { week, months } from './cal.js';
   
@@ -75,11 +75,14 @@
 	<button class="ok-button" on:mousedown={ () => input.blur() } >Ok</button>
       </div>
       {#if show === "year"}
-	<YearList on:change={ (event) => newDate(event.detail) } { isValid(date) ? date : new Date() } />
+	<YearList on:change={ (event) => newDate(event.detail) }
+          date={ isValid(date) ? date : new Date() } />
       {:else if show === "month"}
-	  <MonthsGrid on:change={ (event) => newDate(event.detail) } { isValid(date) ? date : new Date() } />
+	  <MonthsGrid on:change={ (event) => newDate(event.detail) }
+            date={ isValid(date) ? date : new Date() } />
 	{:else if show === "day"}		
-	    <MonthGrid on:change={ (event) => newDate(event.detail) } { isValid(date) ? date : new Date()  } />
+	    <MonthGrid on:change={ (event) => newDate(event.detail) }
+              date={ isValid(date) ? date : new Date()  } />
 	  {/if}
 	</div>
       {/if}

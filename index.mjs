@@ -4854,7 +4854,7 @@ function slide(node, { delay = 0, duration = 400, easing = cubicOut }) {
     };
 }
 
-const week = ["Man", "Tir", "Ons", "Tor", "Fre", "L�r", "S�n"];
+const week = ["Man", "Tir", "Ons", "Tor", "Fre", "Lør", "Søn"];
 
 
 const months = [
@@ -5475,12 +5475,12 @@ class YearList extends SvelteComponent {
 
 function add_css$6() {
 	var style = element("style");
-	style.id = "svelte-1ljzyv6-style";
-	style.textContent = ".dateinput.svelte-1ljzyv6.svelte-1ljzyv6{position:relative;background:white}.dategrid.svelte-1ljzyv6.svelte-1ljzyv6{width:215px;font-family:'Roboto';user-select:none;padding:2px;border:1px solid black;position:absolute;display:flex;flex-direction:column}.buttons.svelte-1ljzyv6.svelte-1ljzyv6{display:flex;justify-content:space-betweent}.buttons.svelte-1ljzyv6 button.svelte-1ljzyv6{flex:0 1 25%}button.svelte-1ljzyv6.svelte-1ljzyv6:hover{background:gray}.ok-button.svelte-1ljzyv6.svelte-1ljzyv6{flex:0;margin-left:auto;backgorund-color:green;backgorund:green}";
+	style.id = "svelte-6i2n02-style";
+	style.textContent = ".dateinput.svelte-6i2n02.svelte-6i2n02{position:relative}.dategrid.svelte-6i2n02.svelte-6i2n02{background:white;width:215px;font-family:'Roboto';user-select:none;padding:2px;border:1px solid black;position:absolute;display:flex;flex-direction:column}.buttons.svelte-6i2n02.svelte-6i2n02{display:flex;justify-content:space-betweent}.buttons.svelte-6i2n02 button.svelte-6i2n02{flex:0 1 25%}button.svelte-6i2n02.svelte-6i2n02:hover{background:gray}.ok-button.svelte-6i2n02.svelte-6i2n02{flex:0;margin-left:auto;backgorund-color:green;backgorund:green}";
 	append(document.head, style);
 }
 
-// (65:2) {#if focus}
+// (66:2) {#if focus}
 function create_if_block(ctx) {
 	let div1;
 	let div0;
@@ -5519,21 +5519,21 @@ function create_if_block(ctx) {
 			button0.textContent = "Dag";
 			t1 = space();
 			button1 = element("button");
-			button1.textContent = "M�ned";
+			button1.textContent = "Måned";
 			t3 = space();
 			button2 = element("button");
-			button2.textContent = "�r";
+			button2.textContent = "År";
 			t5 = space();
 			button3 = element("button");
 			button3.textContent = "Ok";
 			t7 = space();
 			if (if_block) if_block.c();
-			attr(button0, "class", "svelte-1ljzyv6");
-			attr(button1, "class", "svelte-1ljzyv6");
-			attr(button2, "class", "svelte-1ljzyv6");
-			attr(button3, "class", "ok-button svelte-1ljzyv6");
-			attr(div0, "class", "buttons svelte-1ljzyv6");
-			attr(div1, "class", "dategrid svelte-1ljzyv6");
+			attr(button0, "class", "svelte-6i2n02");
+			attr(button1, "class", "svelte-6i2n02");
+			attr(button2, "class", "svelte-6i2n02");
+			attr(button3, "class", "ok-button svelte-6i2n02");
+			attr(div0, "class", "buttons svelte-6i2n02");
+			attr(div1, "class", "dategrid svelte-6i2n02");
 		},
 		m(target, anchor, remount) {
 			insert(target, div1, anchor);
@@ -5626,10 +5626,16 @@ function create_if_block(ctx) {
 	};
 }
 
-// (80:26) 
+// (83:26) 
 function create_if_block_3(ctx) {
 	let current;
-	const monthgrid = new MonthGrid({ props: { date: /*date*/ ctx[0] } });
+
+	const monthgrid = new MonthGrid({
+			props: {
+				date: isValid(/*date*/ ctx[0]) ? /*date*/ ctx[0] : new Date()
+			}
+		});
+
 	monthgrid.$on("change", /*change_handler_2*/ ctx[18]);
 
 	return {
@@ -5642,7 +5648,7 @@ function create_if_block_3(ctx) {
 		},
 		p(ctx, dirty) {
 			const monthgrid_changes = {};
-			if (dirty & /*date*/ 1) monthgrid_changes.date = /*date*/ ctx[0];
+			if (dirty & /*date*/ 1) monthgrid_changes.date = isValid(/*date*/ ctx[0]) ? /*date*/ ctx[0] : new Date();
 			monthgrid.$set(monthgrid_changes);
 		},
 		i(local) {
@@ -5660,10 +5666,16 @@ function create_if_block_3(ctx) {
 	};
 }
 
-// (78:33) 
+// (80:33) 
 function create_if_block_2(ctx) {
 	let current;
-	const monthsgrid = new MonthsGrid({ props: { date: /*date*/ ctx[0] } });
+
+	const monthsgrid = new MonthsGrid({
+			props: {
+				date: isValid(/*date*/ ctx[0]) ? /*date*/ ctx[0] : new Date()
+			}
+		});
+
 	monthsgrid.$on("change", /*change_handler_1*/ ctx[17]);
 
 	return {
@@ -5676,7 +5688,7 @@ function create_if_block_2(ctx) {
 		},
 		p(ctx, dirty) {
 			const monthsgrid_changes = {};
-			if (dirty & /*date*/ 1) monthsgrid_changes.date = /*date*/ ctx[0];
+			if (dirty & /*date*/ 1) monthsgrid_changes.date = isValid(/*date*/ ctx[0]) ? /*date*/ ctx[0] : new Date();
 			monthsgrid.$set(monthsgrid_changes);
 		},
 		i(local) {
@@ -5694,10 +5706,16 @@ function create_if_block_2(ctx) {
 	};
 }
 
-// (76:6) {#if show === "year"}
+// (77:6) {#if show === "year"}
 function create_if_block_1(ctx) {
 	let current;
-	const yearlist = new YearList({ props: { date: /*date*/ ctx[0] } });
+
+	const yearlist = new YearList({
+			props: {
+				date: isValid(/*date*/ ctx[0]) ? /*date*/ ctx[0] : new Date()
+			}
+		});
+
 	yearlist.$on("change", /*change_handler*/ ctx[16]);
 
 	return {
@@ -5710,7 +5728,7 @@ function create_if_block_1(ctx) {
 		},
 		p(ctx, dirty) {
 			const yearlist_changes = {};
-			if (dirty & /*date*/ 1) yearlist_changes.date = /*date*/ ctx[0];
+			if (dirty & /*date*/ 1) yearlist_changes.date = isValid(/*date*/ ctx[0]) ? /*date*/ ctx[0] : new Date();
 			yearlist.$set(yearlist_changes);
 		},
 		i(local) {
@@ -5743,8 +5761,13 @@ function create_fragment$a(ctx) {
 			input_1 = element("input");
 			t = space();
 			if (if_block) if_block.c();
-			input_1.value = input_1_value_value = format(/*date*/ ctx[0], "yyyy-MM-dd");
-			attr(div, "class", "dateinput svelte-1ljzyv6");
+			attr(input_1, "placeholder", "YYYY-MM-DD");
+
+			input_1.value = input_1_value_value = isValid(/*date*/ ctx[0])
+			? format(/*date*/ ctx[0], "yyyy-MM-dd")
+			: "";
+
+			attr(div, "class", "dateinput svelte-6i2n02");
 		},
 		m(target, anchor, remount) {
 			insert(target, div, anchor);
@@ -5762,7 +5785,9 @@ function create_fragment$a(ctx) {
 			];
 		},
 		p(ctx, [dirty]) {
-			if (!current || dirty & /*date*/ 1 && input_1_value_value !== (input_1_value_value = format(/*date*/ ctx[0], "yyyy-MM-dd")) && input_1.value !== input_1_value_value) {
+			if (!current || dirty & /*date*/ 1 && input_1_value_value !== (input_1_value_value = isValid(/*date*/ ctx[0])
+			? format(/*date*/ ctx[0], "yyyy-MM-dd")
+			: "") && input_1.value !== input_1_value_value) {
 				input_1.value = input_1_value_value;
 			}
 
@@ -5888,7 +5913,7 @@ function instance$9($$self, $$props, $$invalidate) {
 class DatePicker extends SvelteComponent {
 	constructor(options) {
 		super();
-		if (!document.getElementById("svelte-1ljzyv6-style")) add_css$6();
+		if (!document.getElementById("svelte-6i2n02-style")) add_css$6();
 		init(this, options, instance$9, create_fragment$a, safe_not_equal, { date: 0, show: 1, autoFocus: 8 });
 	}
 }
