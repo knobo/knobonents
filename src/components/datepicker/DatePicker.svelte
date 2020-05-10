@@ -28,7 +28,7 @@
   
   export let date = new Date();
   export let show = "day";
-
+  
   export let autoFocus = false;
   let focus = autoFocus;
   
@@ -56,9 +56,10 @@
 
 <div class="dateinput">
   <input
-    bind:this={input}
+    bind:this={ input }
     on:input={ onChange }
-    value={ format(date, 'yyyy-MM-dd') }
+    placeholder="YYYY-MM-DD"
+    value={ isValid(date) ? format(date, 'yyyy-MM-dd') : '' }
     on:focus={ onFocus } 
     on:blur={ onBlur }
     >
@@ -74,11 +75,11 @@
 	<button class="ok-button" on:mousedown={ () => input.blur() } >Ok</button>
       </div>
       {#if show === "year"}
-	<YearList on:change={ (event) => newDate(event.detail) } {date} />
+	<YearList on:change={ (event) => newDate(event.detail) } { isValid(date) ? date : new Date() } />
       {:else if show === "month"}
-	  <MonthsGrid on:change={ (event) => newDate(event.detail) } {date} />
+	  <MonthsGrid on:change={ (event) => newDate(event.detail) } { isValid(date) ? date : new Date() } />
 	{:else if show === "day"}		
-	    <MonthGrid on:change={ (event) => newDate(event.detail) } {date} />
+	    <MonthGrid on:change={ (event) => newDate(event.detail) } { isValid(date) ? date : new Date()  } />
 	  {/if}
 	</div>
       {/if}
