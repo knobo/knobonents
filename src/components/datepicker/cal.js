@@ -1,6 +1,6 @@
 
 
-export const week = ["Man", "Tir", "Ons", "Tor", "Fre", "Lør", "Søn"];
+export const week = ["Man", "Tir", "Ons", "Tor", "Fre", "LÃ¸r", "SÃ¸n"];
 
 
 export const months = [
