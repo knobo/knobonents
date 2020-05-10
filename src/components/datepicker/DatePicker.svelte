@@ -69,8 +69,8 @@
 	 >
       <div class="buttons">
 	<button on:mousedown={ () => show = "day" } >Dag</button>
-	<button on:mousedown={ () => show = "month" } >Måned</button>
-	<button on:mousedown={ () => show = "year" } >År</button>
+	<button on:mousedown={ () => show = "month" } >MÃ¥ned</button>
+	<button on:mousedown={ () => show = "year" } >Ã…r</button>
 	<button class="ok-button" on:mousedown={ () => input.blur() } >Ok</button>
       </div>
       {#if show === "year"}
@@ -87,10 +87,10 @@
 <style>
   .dateinput {
     position: relative;
-    background: white;
   }
   
   .dategrid {
+    background: white;
     width: 215px;
     font-family: 'Roboto';
     user-select: none;
